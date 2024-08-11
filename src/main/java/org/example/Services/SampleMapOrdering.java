@@ -21,7 +21,7 @@ public class SampleMapOrdering {
         for (MeasurementType type : MeasurementType.values()) {
             orderedSamples.put(type, new ArrayList<>());
             for (Measurement measurement : unorderedSamples) {
-                if (type == measurement.getMesurementType()){
+                if (type == measurement.getMeasurementType()){
                     List<Measurement> tempList = orderedSamples.get(type);
                     tempList.add(measurement);
                     orderedSamples.put(type, tempList);

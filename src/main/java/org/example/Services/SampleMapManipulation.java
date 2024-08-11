@@ -9,10 +9,12 @@ import java.util.Map;
 
 public class SampleMapManipulation {
 
-    public Map<MeasurementType, List<Measurement>> createOrderedAndSortedMap(LocalDateTime startOfSampling, List<Measurement> unsampledMesurements){
+    public Map<MeasurementType, List<Measurement>> createOrderedAndSortedMap(LocalDateTime startOfSampling, List<Measurement> unsampledMeasurements){
         Map<MeasurementType, List<Measurement>> resultMap;
+        SampleValidation validation = new SampleValidation();
+        List <Measurement> validatedMeasurements = validation.validateMeasurements(unsampledMeasurements);
         SampleMapOrdering ordering = new SampleMapOrdering();
-        resultMap = ordering.orderSamples(unsampledMesurements);
+        resultMap = ordering.orderSamples(validatedMeasurements);
         SampleMapSorting sorting = new SampleMapSorting();
         return sorting.sampleMapSorting(startOfSampling, resultMap);
     }

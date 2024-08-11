@@ -20,8 +20,7 @@ public class SampleMapSorting {
             LocalDateTime currentPoint = startOfSampling;
             Measurement lastMeasurementInInterval = null;
             for (Measurement measurement : measurements) {
-                LocalDateTime measurementTime = measurement.getMeasurementTime();
-                while (measurementTime.isAfter(currentPoint.plusMinutes(5))) {
+                while (measurement.getMeasurementTime().isAfter(currentPoint.plusMinutes(5))) {
                     if (lastMeasurementInInterval != null) {
                         lastMeasurementInInterval.setMeasurementTime(currentPoint.plusMinutes(5));
                         sortedListOfType.add(lastMeasurementInInterval);

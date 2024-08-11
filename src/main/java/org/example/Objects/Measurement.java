@@ -33,11 +33,11 @@ public class Measurement {
         this.measurementValue = measurementValue;
     }
 
-    public MeasurementType getMesurementType() {
+    public MeasurementType getMeasurementType() {
         return measurementType;
     }
 
-    public void setMesurementType(MeasurementType measurementType) {
+    public void setMeasurementType(MeasurementType measurementType) {
         this.measurementType = measurementType;
     }
 
@@ -53,4 +53,5 @@ public class Measurement {
     public int hashCode() {
         return Objects.hash(measurementTime, measurementValue, measurementType);
     }
+
 }
