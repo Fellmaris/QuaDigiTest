@@ -14,7 +14,7 @@ public class Main {
         SampleMapManipulation sampleMapManipulation = new SampleMapManipulation();
         LocalDateTime startOfSampling = LocalDateTime.of(2024, 8, 9, 12, 25, 00);
         Map<MeasurementType, List<Measurement>> result =
-                sampleMapManipulation.createOrderedAndSortedMap(startOfSampling, MockMeasurements.createMesurementList());
+                sampleMapManipulation.createOrderedAndSortedMap(startOfSampling, MockMeasurements.createMesurementListWithNulls());
         for (MeasurementType type : MeasurementType.values()){
             for (Measurement measurement : result.get(type)){
                 System.out.println("MeasurementType: " + measurement.getMeasurementType());
