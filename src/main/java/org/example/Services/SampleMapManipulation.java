@@ -13,7 +13,7 @@ public class SampleMapManipulation {
         Map<MeasurementType, List<Measurement>> resultMap;
         SampleValidation validation = new SampleValidation();
         List <Measurement> validatedMeasurements = validation.validateMeasurements(unsampledMeasurements);
-        SampleMapOrdering ordering = new SampleMapOrdering();
+        SampleMapOrderingByTypeAndTime ordering = new SampleMapOrderingByTypeAndTime();
         resultMap = ordering.orderSamples(validatedMeasurements);
         SampleMapSorting sorting = new SampleMapSorting();
         return sorting.sampleMapSorting(startOfSampling, resultMap);
