@@ -1,9 +1,7 @@
 package org.example.Services;
 
 import org.example.Objects.Measurement;
-import org.example.Types.MeasurementType;
 
-import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -24,17 +22,6 @@ public class SampleValidation {
                 }
                 if (measurement.getMeasurementType() == null) {
                     throw new IllegalArgumentException("MeasurementType cannot be null.");
-                }
-                if (!(measurement.getMeasurementTime() instanceof LocalDateTime)) {
-                    throw new IllegalArgumentException("MeasurementTime must be of type LocalDateTime.");
-                }
-
-                if (!(measurement.getMeasurementValue() instanceof Double)) {
-                    throw new IllegalArgumentException("MeasurementValue must be of type Double.");
-                }
-
-                if (!(measurement.getMeasurementType() instanceof MeasurementType)) {
-                    throw new IllegalArgumentException("MeasurementType must be of type MeasurementType.");
                 }
                 validated.add(measurement);
             } catch (IllegalArgumentException e) {
