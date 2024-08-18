@@ -1,12 +1,12 @@
-package org.example.Services;
+package org.example.MeasurementService;
 
-import org.example.Objects.Measurement;
-import org.example.Types.MeasurementType;
+import org.example.DTO.Measurement;
+import org.example.Enums.MeasurementType;
 
 import java.time.LocalDateTime;
 import java.util.*;
 
-public class SampleMapSorting {
+public class MeasurementSortingIntoIntervals {
 
     public Map<MeasurementType, List<Measurement>> sampleMapSorting(LocalDateTime startOfSampling,
                                                                     Map<MeasurementType, List<Measurement>> unsortedSamples) {

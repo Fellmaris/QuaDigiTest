@@ -1,7 +1,7 @@
-import org.example.MockData.MockMeasurements;
-import org.example.Objects.Measurement;
-import org.example.Services.SampleMapManipulation;
-import org.example.Types.MeasurementType;
+import MockData.MockMeasurements;
+import org.example.DTO.Measurement;
+import org.example.MeasurementService.MeasurementProcessor;
+import org.example.Enums.MeasurementType;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
@@ -12,13 +12,13 @@ import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertIterableEquals;
 
-public class SampleMapManipulationTest {
+public class MeasurementProcessorTest {
 
     @Test
-    public void createOrderedAndSortedMapPassing (){
-        SampleMapManipulation sampleMapManipulation = new SampleMapManipulation();
+    public void createOrderedAndSortedMapWith_OrderedMap_Passing (){
+        MeasurementProcessor measurementProcessor = new MeasurementProcessor();
         LocalDateTime startOfSampling = LocalDateTime.of(2024, 8, 9, 12, 25, 00);
-        Map<MeasurementType, List<Measurement>> result = sampleMapManipulation.createOrderedAndSortedMap(startOfSampling, MockMeasurements.createMesurementList());
+        Map<MeasurementType, List<Measurement>> result = measurementProcessor.createOrderedAndSortedMap(startOfSampling, MockMeasurements.createMesurementList());
 
         List<Measurement> mockResultTempList = new ArrayList<>();
         mockResultTempList.add(new Measurement(LocalDateTime.of(2024, 8, 9, 12, 30, 00), 36.6, MeasurementType.TEMPERATURE));
@@ -41,10 +41,10 @@ public class SampleMapManipulationTest {
     }
 
     @Test
-    public void createOrderedAndSortedMapFailing (){
-        SampleMapManipulation sampleMapManipulation = new SampleMapManipulation();
+    public void createOrderedAndSortedMap_CompareDisorderlyMaps_Failing (){
+        MeasurementProcessor measurementProcessor = new MeasurementProcessor();
         LocalDateTime startOfSampling = LocalDateTime.of(2024, 8, 9, 12, 25, 00);
-        Map<MeasurementType, List<Measurement>> result = sampleMapManipulation.createOrderedAndSortedMap(startOfSampling, MockMeasurements.createMesurementList());
+        Map<MeasurementType, List<Measurement>> result = measurementProcessor.createOrderedAndSortedMap(startOfSampling, MockMeasurements.createMesurementList());
 
         List<Measurement> mockResultTempList = new ArrayList<>();
         mockResultTempList.add(new Measurement(LocalDateTime.of(2024, 8, 9, 12, 40, 00), 36.3, MeasurementType.TEMPERATURE));

@@ -1,11 +1,11 @@
-package org.example.Services;
+package org.example.Validator;
 
-import org.example.Objects.Measurement;
+import org.example.DTO.Measurement;
 
 import java.util.LinkedList;
 import java.util.List;
 
-public class SampleValidation {
+public class Validation {
 
     public List<Measurement> validateMeasurements(List<Measurement> toValidate) {
         List<Measurement> validated = new LinkedList<>();

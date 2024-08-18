@@ -1,21 +1,22 @@
-package org.example.Services;
+package org.example.MeasurementService;
 
-import org.example.Objects.Measurement;
-import org.example.Types.MeasurementType;
+import org.example.DTO.Measurement;
+import org.example.Enums.MeasurementType;
+import org.example.Validator.Validation;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 
-public class SampleMapManipulation {
+public class MeasurementProcessor {
 
     public Map<MeasurementType, List<Measurement>> createOrderedAndSortedMap(LocalDateTime startOfSampling, List<Measurement> unsampledMeasurements){
         Map<MeasurementType, List<Measurement>> resultMap;
-        SampleValidation validation = new SampleValidation();
+        Validation validation = new Validation();
         List <Measurement> validatedMeasurements = validation.validateMeasurements(unsampledMeasurements);
-        SampleMapOrderingByTypeAndTime ordering = new SampleMapOrderingByTypeAndTime();
+        MeasurementOrderingByTypeAndTime ordering = new MeasurementOrderingByTypeAndTime();
         resultMap = ordering.orderSamples(validatedMeasurements);
-        SampleMapSorting sorting = new SampleMapSorting();
+        MeasurementSortingIntoIntervals sorting = new MeasurementSortingIntoIntervals();
         return sorting.sampleMapSorting(startOfSampling, resultMap);
     }
 

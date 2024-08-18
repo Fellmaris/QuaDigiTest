@@ -1,14 +1,14 @@
-package org.example.Services;
+package org.example.MeasurementService;
 
-import org.example.Objects.Measurement;
-import org.example.Types.MeasurementType;
+import org.example.DTO.Measurement;
+import org.example.Enums.MeasurementType;
 
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class SampleMapOrderingByTypeAndTime {
+public class MeasurementOrderingByTypeAndTime {
 
     public Map<MeasurementType, List<Measurement>> orderSamples(List<Measurement> unorderedSamples) {
         return orderSamplesByTime(orderSamplesByType(unorderedSamples));

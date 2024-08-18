@@ -1,7 +1,7 @@
-package org.example.MockData;
+package MockData;
 
-import org.example.Objects.Measurement;
-import org.example.Types.MeasurementType;
+import org.example.DTO.Measurement;
+import org.example.Enums.MeasurementType;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

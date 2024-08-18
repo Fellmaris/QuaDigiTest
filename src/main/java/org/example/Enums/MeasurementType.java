@@ -1,4 +1,4 @@
-package org.example.Types;
+package org.example.Enums;
 
 public enum MeasurementType {
 

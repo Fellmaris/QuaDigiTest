@@ -1,7 +1,7 @@
-import org.example.MockData.MockMeasurements;
-import org.example.Objects.Measurement;
-import org.example.Services.SampleMapOrderingByTypeAndTime;
-import org.example.Types.MeasurementType;
+import MockData.MockMeasurements;
+import org.example.DTO.Measurement;
+import org.example.MeasurementService.MeasurementOrderingByTypeAndTime;
+import org.example.Enums.MeasurementType;
 import org.junit.jupiter.api.Test;
 
 
@@ -13,11 +13,11 @@ import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class SampleMapOrderingTest {
+public class MeasurementOrderingByTypeAndTimeTest {
 
     @Test
-    public void orderSamplesTest() {
-        SampleMapOrderingByTypeAndTime sampleMapOrdering = new SampleMapOrderingByTypeAndTime();
+    public void orderSamples_OrderedMap_Passing() {
+        MeasurementOrderingByTypeAndTime sampleMapOrdering = new MeasurementOrderingByTypeAndTime();
         Map<MeasurementType, List<Measurement>> resultOrderedList = sampleMapOrdering.orderSamples(MockMeasurements.createMesurementList());
 
         List<Measurement> mockOrderedTempList = new ArrayList<>();
@@ -45,8 +45,8 @@ public class SampleMapOrderingTest {
     }
 
     @Test
-    public void orderSamplesTestFailing() {
-        SampleMapOrderingByTypeAndTime sampleMapOrdering = new SampleMapOrderingByTypeAndTime();
+    public void orderSamples_CompareDisorderedMap_Failing() {
+        MeasurementOrderingByTypeAndTime sampleMapOrdering = new MeasurementOrderingByTypeAndTime();
         Map<MeasurementType, List<Measurement>> resultOrderedList = sampleMapOrdering.orderSamples(MockMeasurements.createMesurementList());
 
         List<Measurement> mockOrderedTempList = new ArrayList<>();

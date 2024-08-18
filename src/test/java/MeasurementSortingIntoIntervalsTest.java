@@ -1,6 +1,6 @@
-import org.example.Objects.Measurement;
-import org.example.Services.SampleMapSorting;
-import org.example.Types.MeasurementType;
+import org.example.DTO.Measurement;
+import org.example.MeasurementService.MeasurementSortingIntoIntervals;
+import org.example.Enums.MeasurementType;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
@@ -11,10 +11,10 @@ import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertIterableEquals;
 
-public class SampleMapSortingTest {
+public class MeasurementSortingIntoIntervalsTest {
 
     @Test
-    void sampleMapSortingTestPassing () {
+    void sampleMapSorting_SortedIntoIntervals_Passing () {
         LocalDateTime startOfSampling = LocalDateTime.of(2024, 8, 9, 12, 25, 00);
         List<Measurement> mockToSortTempList = new ArrayList<>();
         mockToSortTempList.add(new Measurement(LocalDateTime.of(2024, 8, 9, 12, 29, 53), 37.6, MeasurementType.TEMPERATURE));
@@ -36,7 +36,7 @@ public class SampleMapSortingTest {
         resultOfSorting.put(MeasurementType.HEART_RATE, mockToSortHeartRateList);
         resultOfSorting.put(MeasurementType.SPO2, mockToSortSP02List);
 
-        SampleMapSorting sampleMapSorting = new SampleMapSorting();
+        MeasurementSortingIntoIntervals sampleMapSorting = new MeasurementSortingIntoIntervals();
         resultOfSorting = sampleMapSorting.sampleMapSorting(startOfSampling, resultOfSorting);
 
         List<Measurement> mockSortedTempList = new ArrayList<>();
@@ -60,7 +60,7 @@ public class SampleMapSortingTest {
     }
 
     @Test
-    void sampleMapSortingTestFailing () {
+    void sampleMapSorting_BadlySortedIntoIntervals_Failing () {
         LocalDateTime startOfSampling = LocalDateTime.of(2024, 8, 9, 12, 25, 00);
         List<Measurement> mockToSortTempList = new ArrayList<>();
         mockToSortTempList.add(new Measurement(LocalDateTime.of(2024, 8, 9, 12, 29, 53), 37.6, MeasurementType.TEMPERATURE));
@@ -82,7 +82,7 @@ public class SampleMapSortingTest {
         resultOfSorting.put(MeasurementType.HEART_RATE, mockToSortHeartRateList);
         resultOfSorting.put(MeasurementType.SPO2, mockToSortSP02List);
 
-        SampleMapSorting sampleMapSorting = new SampleMapSorting();
+        MeasurementSortingIntoIntervals sampleMapSorting = new MeasurementSortingIntoIntervals();
         resultOfSorting = sampleMapSorting.sampleMapSorting(startOfSampling, resultOfSorting);
 
         List<Measurement> mockSortedTempList = new ArrayList<>();
