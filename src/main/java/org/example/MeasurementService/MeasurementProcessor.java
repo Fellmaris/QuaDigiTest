@@ -1,7 +1,7 @@
 package org.example.MeasurementService;
 
-import org.example.DTO.Measurement;
-import org.example.Enums.MeasurementType;
+import org.example.dto.Measurement;
+import org.example.Enum.MeasurementType;
 import org.example.Validator.Validation;
 
 import java.time.LocalDateTime;

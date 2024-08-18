@@ -1,25 +1,23 @@
 package org.example.MeasurementService;
 
-import org.example.DTO.Measurement;
-import org.example.Enums.MeasurementType;
+import org.example.dto.Measurement;
+import org.example.Enum.MeasurementType;
 
 import java.time.LocalDateTime;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class MeasurementSortingIntoIntervals {
 
     public Map<MeasurementType, List<Measurement>> sampleMapSorting(LocalDateTime startOfSampling,
                                                                     Map<MeasurementType, List<Measurement>> unsortedSamples) {
-        Map<MeasurementType, List<Measurement>> sortedSamples = new HashMap<>();
-        for (MeasurementType type : MeasurementType.values()) {
-            List<Measurement> measurements = unsortedSamples.get(type);
-            if (measurements == null || measurements.isEmpty()) {
-                continue;
-            }
-            List<Measurement> sortedListOfType = sortAndAdjustMeasurementsByTime(startOfSampling, measurements);
-            sortedSamples.put(type, sortedListOfType);
-        }
-        return sortedSamples;
+        return Arrays.stream(MeasurementType.values())
+                .map(type -> Map.entry(type, unsortedSamples.get(type)))
+                .filter(entry -> entry.getValue() != null && !entry.getValue().isEmpty())
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey,
+                        entry -> sortAndAdjustMeasurementsByTime(startOfSampling, entry.getValue())
+                ));
     }
 
     private List<Measurement> sortAndAdjustMeasurementsByTime(LocalDateTime startOfSampling, List<Measurement> measurements) {

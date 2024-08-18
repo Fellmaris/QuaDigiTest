@@ -1,7 +1,7 @@
 package org.example.MeasurementService;
 
-import org.example.DTO.Measurement;
-import org.example.Enums.MeasurementType;
+import org.example.dto.Measurement;
+import org.example.Enum.MeasurementType;
 
 import java.util.Comparator;
 import java.util.List;

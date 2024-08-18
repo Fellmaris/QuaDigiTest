@@ -1,7 +1,7 @@
 import MockData.MockMeasurements;
-import org.example.DTO.Measurement;
+import org.example.dto.Measurement;
 import org.example.MeasurementService.MeasurementOrderingByTypeAndTime;
-import org.example.Enums.MeasurementType;
+import org.example.Enum.MeasurementType;
 import org.junit.jupiter.api.Test;
 
 

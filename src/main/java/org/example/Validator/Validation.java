@@ -1,6 +1,6 @@
 package org.example.Validator;
 
-import org.example.DTO.Measurement;
+import org.example.dto.Measurement;
 
 import java.util.LinkedList;
 import java.util.List;

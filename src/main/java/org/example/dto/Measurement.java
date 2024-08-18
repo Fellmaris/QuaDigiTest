@@ -1,6 +1,6 @@
-package org.example.DTO;
+package org.example.dto;
 
-import org.example.Enums.MeasurementType;
+import org.example.Enum.MeasurementType;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
